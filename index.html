@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="public/style.css">
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="users.html"><i class="fas fa-users"></i> Users</a></li>
+            <li><a href="setting.html"><i class="fas fa-cogs"></i> Settings</a></li>
+            <li><a href="messages.html"><i class="fas fa-comment"></i> messages</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> profile</a></li>
+            <li><a href="forms.html"><i class="fas fa-list"></i> forms</a></li>
+            <li><a href="alerts.html"><i class="fas fa-info"></i> alert</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Dashboard</h1>
+            <div class="header-actions">
+                <div class="dropdownList">
+                    <i class="fas fa-list"></i>
+                    <div class="dropdownList-content">
+                        <a href="index.html"> index</a>
+                        <a href="users.html"> users</a>
+                        <a href="messages.html">messages</a>
+                        <a href="setting.html">setting</a>
+                        <a href="forms.html">forms</a>
+                        <a href="profile.html">profile</a>
+                        <a href="alerts.html">alerts</a>
+                    </div>
+                </div>
+                <input type="text" placeholder="Search...">
+                <div class="notifications-container">
+                    <i class="fas fa-bell" id="notificationBell"></i>
+                    <div class="dropdown" id="notificationsDropdown">
+                        <h3>Notifications</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> User John Doe registered successfully.</li>
+                            <li><i class="fas fa-exclamation-circle"></i> Payment failed for Invoice #1234.</li>
+                            <li><i class="fas fa-info-circle"></i> New update available for the system.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="user-menu-container">
+                    <i class="fas fa-user-circle" id="userIcon"></i>
+                    <div class="dropdown" id="userDropdown">
+                        <h3>Hello, Mr. X</h3>
+                        <ul>
+                            <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                            <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </header>
+
+        
+        <section class="cards">
+            <div class="card">
+                <h3>Total Users</h3>
+                <p>1,245</p>
+            </div>
+            <div class="card">
+                <h3>Revenue</h3>
+                <p>$12,450</p>
+            </div>
+            <div class="card">
+                <h3>New Orders</h3>
+                <p>320</p>
+            </div>
+        </section>
+
+        <section class="data-table">
+            <h2>Recent Transactions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>101</td>
+                        <td>John Doe</td>
+                        <td>$150</td>
+                        <td><span class="status success">Completed</span></td>
+                        <td>2024-12-21</td>
+                    </tr>
+                    <tr>
+                        <td>102</td>
+                        <td>Jane Smith</td>
+                        <td>$250</td>
+                        <td><span class="status pending">Pending</span></td>
+                        <td>2024-12-20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="chart">
+            <h2>Users Activity</h2>
+            <canvas id="usersActivityChart"></canvas>
+        </section>
+        
+    </div>
+
+    <!-- Scripts js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="public/script.js"></script>
+    <script>
+        const ctx = document.getElementById('usersActivityChart').getContext('2d');
+        const usersActivityChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                datasets: [{
+                    label: 'Active Users',
+                    data: [50, 70, 60, 90, 100, 80, 120],
+                    backgroundColor: 'rgba(22, 160, 133, 0.2)',
+                    borderColor: '#16a085',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                },
+            },
+        });
+
+    </script>
+</body>
+</html>

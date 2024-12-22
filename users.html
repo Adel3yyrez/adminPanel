@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="public/style.css">
+
+        <!-- FontAwesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="users.html"><i class="fas fa-users"></i> Users</a></li>
+            <li><a href="setting.html"><i class="fas fa-cogs"></i> Settings</a></li>
+            <li><a href="messages.html"><i class="fas fa-comment"></i> messages</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> profile</a></li>
+            <li><a href="forms.html"><i class="fas fa-list"></i> forms</a></li>
+            <li><a href="alerts.html"><i class="fas fa-info"></i> alert</a></li>
+        </ul>
+    </div>
+     <!-- Main Content -->
+     <div class="main-content">
+        <header>
+            <h1>Dashboard</h1>
+            <div class="header-actions">
+                <div class="dropdownList">
+                    <i class="fas fa-list"></i>
+                    <div class="dropdownList-content">
+                        <a href="index.html"> index</a>
+                        <a href="users.html"> users</a>
+                        <a href="messages.html">messages</a>
+                        <a href="setting.html">setting</a>
+                        <a href="forms.html">forms</a>
+                        <a href="profile.html">profile</a>
+                        <a href="alerts.html">alerts</a>
+                    </div>
+                </div>
+                <input type="text" placeholder="Search...">
+                <div class="notifications-container">
+                    <i class="fas fa-bell" id="notificationBell"></i>
+                    <div class="dropdown" id="notificationsDropdown">
+                        <h3>Notifications</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> User John Doe registered successfully.</li>
+                            <li><i class="fas fa-exclamation-circle"></i> Payment failed for Invoice #1234.</li>
+                            <li><i class="fas fa-info-circle"></i> New update available for the system.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="user-menu-container">
+                    <i class="fas fa-user-circle" id="userIcon"></i>
+                    <div class="dropdown" id="userDropdown">
+                        <h3>Hello, Mr. X</h3>
+                        <ul>
+                            <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                            <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </header>
+        <!-- users content -->
+        <div class="user-management">
+            <!-- Tables Section -->
+            <section class="tables">
+                <div class="table-container">
+                    <h3>All Users</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John Doe</td>
+                                <td>john@example.com</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jane Smith</td>
+                                <td>jane@example.com</td>
+                                <td>Inactive</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-container">
+                    <h3>Subscribers</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subscription Plan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Anna Johnson</td>
+                                <td>anna@example.com</td>
+                                <td>Premium</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Mark Wilson</td>
+                                <td>mark@example.com</td>
+                                <td>Free</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-container">
+                    <h3>Active Users</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Last Active</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Susan Lee</td>
+                                <td>2024-12-20</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Paul Brown</td>
+                                <td>2024-12-21</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        
+            <!-- Charts Section -->
+            <section class="charts">
+                <div class="chart-container">
+                    <h3>User Activity Distribution</h3>
+                    <canvas id="userPieChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Weekly User Activity</h3>
+                    <canvas id="userLineChart"></canvas>
+                </div>
+            </section>
+        </div>
+     </div>
+         <!-- scripts js -->
+     <script src="public/script.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script>
+        const userPieCtx = document.getElementById('userPieChart').getContext('2d');
+        new Chart(userPieCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Active', 'Inactive'],
+                datasets: [{
+                    data: [70, 30],
+                    backgroundColor: ['#16a085', '#e74c3c']
+                }]
+            }
+        });
+
+        const userLineCtx = document.getElementById('userLineChart').getContext('2d');
+        new Chart(userLineCtx, {
+            type: 'line',
+            data: {
+                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                datasets: [{
+                    label: 'Active Users',
+                    data: [50, 70, 60, 90, 100, 80, 120],
+                    backgroundColor: 'rgba(22, 160, 133, 0.2)',
+                    borderColor: '#16a085',
+                    borderWidth: 2
+                }]
+            }
+        });
+
+     </script>
+</body>
+</html>

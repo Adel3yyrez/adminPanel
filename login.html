@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #009477;
+        }
+        .login-page {
+            padding: 20px;
+            background: #f4f6f8;
+            font-family: Arial, sans-serif;
+            min-width: 400px;
+            margin: auto;
+            border-radius: 10px;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-page h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            padding: 0 20px 0 0;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button.login-button {
+            background: #16a085;
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button.login-button:hover {
+            background: #13866f;
+        }
+
+        .login-extra {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .login-extra a {
+            color: #16a085;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .login-extra a:hover {
+            text-decoration: underline;
+        }
+        @media(max-width : 550px){
+            .login-page{
+                min-width: 290px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-page">
+        <h2>Login</h2>
+    
+        <form class="login-form">
+            <!-- Username Field -->
+            <div class="form-group">
+                <label for="login-username">Username:</label>
+                <input type="text" id="login-username" placeholder="Enter your username" required>
+            </div>
+    
+            <!-- Password Field -->
+            <div class="form-group">
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" placeholder="Enter your password" required>
+            </div>
+    
+            <button type="button" class="login-button">Login</button>
+        </form>
+    </div>
+    <script>
+        document.querySelector('.login-button').addEventListener('click', () => {
+        const username = document.getElementById('login-username').value.trim();
+        const password = document.getElementById('login-password').value.trim();
+
+        if (!username || !password) {
+            alert('Please fill in both fields!');
+            return;
+        }
+
+        // إرسال البيانات إلى الخادم للتحقق
+        console.log(`Logging in with Username: ${username}, Password: ${password}`);
+        
+        // يمكن استخدام Fetch API أو AJAX للتحقق من بيانات المستخدم
+        alert('Login successful!');
+        window.location.href = 'index.html';
+    });
+
+    </script>
+</body>
+</html>

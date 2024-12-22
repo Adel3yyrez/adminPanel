@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="public/style.css">
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="users.html"><i class="fas fa-users"></i> Users</a></li>
+            <li><a href="setting.html"><i class="fas fa-cogs"></i> Settings</a></li>
+            <li><a href="messages.html"><i class="fas fa-comment"></i> messages</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> profile</a></li>
+            <li><a href="forms.html"><i class="fas fa-list"></i> forms</a></li>
+            <li><a href="alerts.html"><i class="fas fa-info"></i> alert</a></li>
+        </ul>
+    </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Dashboard</h1>
+            <div class="header-actions">
+                <div class="dropdownList">
+                    <i class="fas fa-list"></i>
+                    <div class="dropdownList-content">
+                        <a href="index.html"> index</a>
+                        <a href="users.html"> users</a>
+                        <a href="messages.html">messages</a>
+                        <a href="setting.html">setting</a>
+                        <a href="forms.html">forms</a>
+                        <a href="profile.html">profile</a>
+                        <a href="alerts.html">alerts</a>
+                    </div>
+                </div>
+                <input type="text" placeholder="Search...">
+                <div class="notifications-container">
+                    <i class="fas fa-bell" id="notificationBell"></i>
+                    <div class="dropdown" id="notificationsDropdown">
+                        <h3>Notifications</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> User John Doe registered successfully.</li>
+                            <li><i class="fas fa-exclamation-circle"></i> Payment failed for Invoice #1234.</li>
+                            <li><i class="fas fa-info-circle"></i> New update available for the system.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="user-menu-container">
+                    <i class="fas fa-user-circle" id="userIcon"></i>
+                    <div class="dropdown" id="userDropdown">
+                        <h3>Hello, Mr. X</h3>
+                        <ul>
+                            <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                            <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </header>
+        <!-- setting content -->
+        <div class="settings-page">
+            <h2>Settings</h2>
+        
+            <!-- User Settings -->
+            <section class="settings-section">
+                <h3>User Settings</h3>
+                <div class="settings-group">
+                    <label for="defaultUserRole">Default User Role:</label>
+                    <select id="defaultUserRole">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+            </section>
+        
+            <!-- Media Settings -->
+            <section class="settings-section">
+                <h3>Media Settings</h3>
+                <div class="settings-group">
+                    <label for="facebook">Facebook:</label>
+                    <input type="url" id="facebook" placeholder="https://facebook.com/yourpage">
+                </div>
+                <div class="settings-group">
+                    <label for="twitter">Twitter:</label>
+                    <input type="url" id="twitter" placeholder="https://twitter.com/yourhandle">
+                </div>
+            </section>
+        
+            <!-- Homepage Settings -->
+            <section class="settings-section">
+                <h3>Homepage Settings</h3>
+                <div class="settings-group">
+                    <label for="homepageBackground">Background Image:</label>
+                    <input type="file" id="homepageBackground">
+                </div>
+                <div class="settings-group">
+                    <label for="homepageTitle">Homepage Title:</label>
+                    <input type="text" id="homepageTitle" placeholder="Welcome to Our Website">
+                </div>
+            </section>
+        
+            <!-- About Page Settings -->
+            <section class="settings-section">
+                <h3>About Page Settings</h3>
+                <div class="settings-group">
+                    <label for="aboutImage">About Page Image:</label>
+                    <input type="file" id="aboutImage">
+                </div>
+                <div class="settings-group">
+                    <label for="aboutDescription">Description:</label>
+                    <textarea id="aboutDescription" placeholder="Write something about your website..."></textarea>
+                </div>
+            </section>
+        
+            <!-- Contact Settings -->
+            <section class="settings-section">
+                <h3>Contact Settings</h3>
+                <div class="settings-group">
+                    <label for="contactPhone">Phone Number:</label>
+                    <input type="tel" id="contactPhone" placeholder="Your phone number">
+                </div>
+                <div class="settings-group">
+                    <label for="contactEmail">Email Address:</label>
+                    <input type="email" id="contactEmail" placeholder="Your email address">
+                </div>
+            </section>
+        
+            <!-- Additional Settings -->
+            <section class="settings-section">
+                <h3>Additional Settings</h3>
+                <div class="settings-group">
+                    <label for="maintenanceMode">Maintenance Mode:</label>
+                    <select id="maintenanceMode">
+                        <option value="off">Off</option>
+                        <option value="on">On</option>
+                    </select>
+                </div>
+                <div class="settings-group">
+                    <label for="siteLanguage">Default Language:</label>
+                    <select id="siteLanguage">
+                        <option value="en">English</option>
+                        <option value="fr">French</option>
+                        <option value="ar">Arabic</option>
+                    </select>
+                </div>
+            </section>
+        
+            <button class="save-settings">Save Changes</button>
+        </div>
+    </div>
+    <!-- scripts js -->
+    <script src="public/script.js"></script>
+    <script>
+        document.querySelector('.save-settings').addEventListener('click', () => {
+            alert('Settings saved successfully!');
+        });
+    </script>
+</body>
+</html>
